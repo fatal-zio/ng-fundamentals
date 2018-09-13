@@ -8,6 +8,7 @@ export interface IEvent {
   price: number;
   imageUrl: string;
   location: ILocation;
+  onlineUrl: string;
 }
 
 export class Event implements IEvent {
@@ -19,5 +20,6 @@ export class Event implements IEvent {
       public time: string,
       public price: number,
       public imageUrl: string,
-      public location: ILocation) {}
+      public location: ILocation,
+      public onlineUrl: string) {}
 }
