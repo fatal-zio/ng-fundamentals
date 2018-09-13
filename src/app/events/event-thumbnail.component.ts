@@ -9,7 +9,7 @@ import { IEvent } from './event';
 export class EventThumbnailComponent implements OnInit {
   @Input() event: IEvent;
 
-  constructor() { }
+  constructor() {  }
 
   ngOnInit() {
   }
