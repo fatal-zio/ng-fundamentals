@@ -1,2 +1,3 @@
 .pad-left { margin-left: 10px; }
-.well { color: #bbb;}
+.well { color: #bbb; }
+.thumbnail { min-height: 210px; }
