@@ -11,4 +11,17 @@ export class ToastrMessageService {
   success(message: string, title?: string) {
     this.toastrService.success(message, title);
   }
+
+  info(message: string, title?: string) {
+    this.toastrService.info(message, title);
+  }
+
+  warning(message: string, title?: string) {
+    this.toastrService.warning(message, title);
+  }
+
+  error(message: string, title?: string) {
+    this.toastrService.error(message, title);
+  }
+
 }
