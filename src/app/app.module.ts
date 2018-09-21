@@ -10,6 +10,8 @@ import { NavbarComponent } from './nav/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { appRoutes } from './routes';
+import { CreateEventComponent } from './events/create-event.component';
+import { NotFoundComponent } from './errors/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { appRoutes } from './routes';
     EventsListComponent,
     EventThumbnailComponent,
     NavbarComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    CreateEventComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
