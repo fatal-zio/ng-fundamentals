@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
+import {
+  EventsListComponent,
+  EventThumbnailComponent,
+  EventDetailsComponent,
+  CreateEventComponent
+} from './events/index';
+
 import { AppComponent } from './app.component';
-import { EventsListComponent } from './events/events-list.component';
-import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
-import { EventDetailsComponent } from './events/event-details/event-details.component';
-import { appRoutes } from './routes';
-import { CreateEventComponent } from './events/create-event.component';
+import { AppRoutes } from './routes';
 import { NotFoundComponent } from './errors/not-found.component';
 
 @NgModule({
@@ -27,7 +30,7 @@ import { NotFoundComponent } from './errors/not-found.component';
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [
     {
