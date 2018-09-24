@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IEvent } from './event';
+import { IEvent } from './shared/index';
 
 @Component({
   selector: 'af-event-thumbnail',
