@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService, IEvent } from '../shared/index';
+import { SessionListComponent } from './session-list.component';
 
 @Component({
   templateUrl: './event-details.component.html',

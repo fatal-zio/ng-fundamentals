@@ -17,6 +17,7 @@ import { NavbarComponent } from './nav/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutes } from './routes';
 import { NotFoundComponent } from './errors/not-found.component';
+import { SessionListComponent } from './events/event-details/session-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './errors/not-found.component';
     EventDetailsComponent,
     CreateEventComponent,
     NotFoundComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
