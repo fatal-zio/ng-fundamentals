@@ -7,7 +7,7 @@
       <em *ngIf="nameControl.invalid && (nameControl.touched)">Required</em>
       <input #nameControl="ngModel" (ngModel)="currentEvent.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your event..." />
     </div>
-    <div class="form-group" [ngClass]="{'error': newEventForm.controls.date?.invalid && newEventForm.controls.date?.touched}">
+    <div class="form-group" [ngClass]="{'error': dateControl.invalid && dateControl.touched}">
       <label for="eventDate">Event Date:</label>
       <em *ngIf="dateControl.invalid && (dateControl.touched)">Required</em>
       <input #dateControl="ngModel" (ngModel)="currentEvent.date" name="date" required id="eventDate" type="text" class="form-control" placeholder="format (mm/dd/yyyy)..." />
@@ -44,7 +44,8 @@
     </div>
     <div class="form-group" [ngClass]="{'error': imageUrlControl.invalid && imageUrlControl.touched}">
       <label for="imageUrl">Image:</label>
-      <em *ngIf="imageUrlControl.invalid && imageUrlControl.touched">Required and must be a JPG or PNG</em>
+      <em *ngIf="imageUrlControl.invalid && imageUrlControl.touched && imageUrlControl.getError('required')">Required</em>
+      <em *ngIf="imageUrlControl.invalid && imageUrlControl.touched && imageUrlControl.getError('pattern')">Image must be a JPG or PNG</em>
       <input #imageUrlControl="ngModel" (ngModel)="currentEvent.imageUrl" name="imageUrl" required pattern=".*\/.*.(png|jpg)" id="imageUrl" type="text" class="form-control" placeholder="url of image..." />
       <img *ngIf="imageUrlControl.valid" [src]="imageUrlControl.value"/>
     </div>
