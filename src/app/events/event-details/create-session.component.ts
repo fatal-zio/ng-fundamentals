@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ISession } from '../shared/session';
+import { restrictedWords, ISession } from '../shared/index';
 
 @Component({
   selector: 'af-create-session',
@@ -22,7 +22,7 @@ export class CreateSessionComponent implements OnInit {
     this.presenter = new FormControl('', Validators.required);
     this.duration = new FormControl('', Validators.required);
     this.level = new FormControl('', Validators.required);
-    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), this.restrictedWords]);
+    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), restrictedWords(['foo', 'bar'])]);
 
     this.newSessionForm = new FormGroup({
       name: this.name,
@@ -44,12 +44,6 @@ export class CreateSessionComponent implements OnInit {
       voters: []
     };
     console.log(newSession);
-  }
-
-  private restrictedWords(control: FormControl): { [key: string]: any } {
-    return control.value.includes('foo')
-      ? {'restrictedWords': 'foo'}
-      : null;
   }
 
 }

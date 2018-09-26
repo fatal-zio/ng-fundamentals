@@ -36,7 +36,7 @@
     </div>
     <div class="form-group" [ngClass]="{'error': abstract.invalid && abstract.dirty }">
       <label for="abstract">Abstract:</label>
-      <em *ngIf="abstract.invalid && abstract.dirty && abstract?.getError('restrictedWords')">Entry contains restricted words</em>
+      <em *ngIf="abstract.invalid && abstract.dirty && abstract?.getError('restrictedWords')">Entry contains restricted words: {{abstract?.getError('restrictedWords')}}</em>
       <em *ngIf="abstract.invalid && abstract.dirty && abstract?.getError('required')">Required</em>
       <em *ngIf="abstract.invalid && abstract.dirty && abstract?.getError('maxlength')">Entry cannot exceed 400 characters</em>
       <textarea formControlName="abstract" id="abstract" rows=3 class="form-control" placeholder="abstract..."></textarea>
