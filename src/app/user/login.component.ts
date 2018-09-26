@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   private userName: string;
   private password: string;
-  private mouseoverLogin: boolean;
+  public mouseoverLogin: boolean;
 
   constructor(private authService: AuthService, private router: Router) { }
 
