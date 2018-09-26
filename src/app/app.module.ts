@@ -8,7 +8,8 @@ import {
   EventsListComponent,
   EventThumbnailComponent,
   EventDetailsComponent,
-  CreateEventComponent
+  CreateEventComponent,
+  CreateSessionComponent
 } from './events/index';
 
 import { AppComponent } from './app.component';
@@ -25,7 +26,8 @@ import { NotFoundComponent } from './errors/not-found.component';
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,

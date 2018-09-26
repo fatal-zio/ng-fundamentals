@@ -23,16 +23,18 @@
       <input #priceControl="ngModel" (ngModel)="currentEvent.price" name="price" required id="eventPrice" type="text" type="number" class="form-control" placeholder="event price..." />
     </div>
 
-    <div class="form-group">
-      <label for="address">Event Location:</label>
-      <input (ngModel)="currentEvent.location.address" name="address" id="address" type="text" class="form-control" placeholder="Address of event..." />
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <input (ngModel)="currentEvent.location.city" name="city" id="city" type="text" class="form-control" placeholder="City..." />
+    <div ngModelGroup="location">
+      <div class="form-group">
+        <label for="address">Event Location:</label>
+        <input (ngModel)="currentEvent.location.address" name="address" id="address" type="text" class="form-control" placeholder="Address of event..." />
       </div>
-      <div class="col-md-6" >
-        <input (ngModel)="currentEvent.location.country" name="country" id="country" type="text" class="form-control" placeholder="Country..." />
+      <div class="row">
+        <div class="col-md-6">
+          <input (ngModel)="currentEvent.location.city" name="city" id="city" type="text" class="form-control" placeholder="City..." />
+        </div>
+        <div class="col-md-6" >
+          <input (ngModel)="currentEvent.location.country" name="country" id="country" type="text" class="form-control" placeholder="Country..." />
+        </div>
       </div>
     </div>
 
@@ -44,7 +46,7 @@
       <label for="imageUrl">Image:</label>
       <em *ngIf="imageUrlControl.invalid && imageUrlControl.touched">Required and must be a JPG or PNG</em>
       <input #imageUrlControl="ngModel" (ngModel)="currentEvent.imageUrl" name="imageUrl" required pattern=".*\/.*.(png|jpg)" id="imageUrl" type="text" class="form-control" placeholder="url of image..." />
-      <img />
+      <img *ngIf="imageUrlControl.valid" [src]="imageUrlControl.value"/>
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>

@@ -17,5 +17,4 @@ export class Session implements ISession {
     public level: string,
     public abstract: string,
     public voters: string[]) {}
-
 }
