@@ -26,6 +26,11 @@ export class EventService {
     this.EVENTS.push(event);
   }
 
+  updateEvent(event) {
+    const index = this.EVENTS.findIndex(x => x.id = event.id);
+    this.EVENTS[index] = event;
+  }
+
   populateEvents(): void {
     this.EVENTS = [
       {
