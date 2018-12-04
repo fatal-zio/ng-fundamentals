@@ -18,6 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutes } from './routes';
 import { NotFoundComponent } from './errors/not-found.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SessionListComponent } from './events/event-details/session-list.compon
     CreateEventComponent,
     NotFoundComponent,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
