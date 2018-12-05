@@ -19,6 +19,7 @@ import { AppRoutes } from './routes';
 import { NotFoundComponent } from './errors/not-found.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
+import { DurationPipe } from './events/shared/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-
     NotFoundComponent,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
