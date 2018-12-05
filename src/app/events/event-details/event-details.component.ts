@@ -9,7 +9,9 @@ import { SessionListComponent } from './index';
 })
 export class EventDetailsComponent implements OnInit {
   @Input() event: IEvent;
-  addMode: boolean;
+  public addMode: boolean;
+  public filterBy = 'all';
+  public sortBy = 'votes';
 
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
 
