@@ -12,14 +12,16 @@ import {
   CreateSessionComponent
 } from './events/index';
 
+import { JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutes } from './routes';
 import { NotFoundComponent } from './errors/not-found.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
-import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pipe';
+
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { DurationPipe } from './events/shared/duration.pipe';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,9 @@ import { DurationPipe } from './events/shared/duration.pipe';
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
+    },
+    {
+      provide: JQ_TOKEN, useValue: jQuery
     }
   ],
   bootstrap: [AppComponent]
