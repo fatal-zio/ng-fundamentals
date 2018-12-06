@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { EventService, IEvent, ISession } from '../shared/index';
 import { SessionListComponent } from './index';
 
@@ -16,7 +16,9 @@ export class EventDetailsComponent implements OnInit {
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+    this.route.params.subscribe(result => {
+      this.event = this.eventService.getEvent(+result.id);
+    });
   }
 
   addSession(): void {
