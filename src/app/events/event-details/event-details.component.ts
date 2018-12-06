@@ -18,6 +18,7 @@ export class EventDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(result => {
       this.event = this.eventService.getEvent(+result.id);
+      this.addMode = false;
     });
   }
 
