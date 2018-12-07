@@ -10,7 +10,8 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   CreateSessionComponent,
-  UpvoteComponent
+  UpvoteComponent,
+  LocationValidatorDirective
 } from './events/index';
 
 import { JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
@@ -39,7 +40,8 @@ const jQuery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    UpvoteComponent,
+    LocationValidatorDirective
   ],
   imports: [
     BrowserModule,
