@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { EventService, IEvent, ISession } from '../shared/index';
-import { SessionListComponent } from './index';
 
 @Component({
   templateUrl: './event-details.component.html',
@@ -17,7 +16,7 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(result => {
-      this.event = this.eventService.getEvent(+result.id);
+      this.event = this.route.snapshot.data['event'];
       this.addMode = false;
     });
   }
