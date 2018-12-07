@@ -8,6 +8,7 @@ import { of, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+
   public currentUser: IUser;
 
   constructor(private http: HttpClient) { }
@@ -29,8 +30,25 @@ export class AuthService {
     return !!this.currentUser;
   }
 
-  updateCurrentUser(firstName: string, lastName: string) {
+  public checkAuthenticationStatus(): boolean {
+    const url = '/api/currentIdentity';
+
+    this.http.get(url).subscribe(data => {
+      if (data) {
+        this.currentUser = <IUser>data;
+        return true;
+      }
+    });
+
+    return false;
+  }
+
+  public updateCurrentUser(firstName: string, lastName: string): Observable<any> {
+    const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    const url = `/api/users/${this.currentUser.id}`;
     this.currentUser.firstName = firstName;
     this.currentUser.lastName = lastName;
+
+    return this.http.put(url, this.currentUser, options);
   }
 }
