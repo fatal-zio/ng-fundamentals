@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <af-session-list [filterBy]="filterBy" [sortBy]="sortBy" *ngIf="!addMode" [sessions]="event?.sessions"></af-session-list>
+  <af-session-list [eventId]="event.id" [filterBy]="filterBy" [sortBy]="sortBy" *ngIf="!addMode" [sessions]="event?.sessions"></af-session-list>
   <af-create-session *ngIf="addMode"
     (saveNewSession)="saveNewSession($event)"
     (cancelAddSession)="cancelAddSession($event)"></af-create-session>
