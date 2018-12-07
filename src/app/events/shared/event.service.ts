@@ -1,7 +1,9 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { IEvent } from './event.model';
-import { Subject, Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ISession } from './session';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,25 +11,31 @@ import { ISession } from './session';
 export class EventService {
   private EVENTS: IEvent[];
 
-  constructor() { this.populateEvents(); }
+  constructor(private http: HttpClient) { this.populateEvents(); }
 
-  getEvents(): Observable<IEvent[]> {
-    const subject = new Subject<IEvent[]>();
-    setTimeout(() => {subject.next(this.EVENTS); subject.complete(); }, 100);
-    return subject;
+  public getEvents(): Observable<IEvent[]> {
+    return this.http.get<IEvent[]>('/api/events')
+      .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
   }
 
-  getEvent(id: number): IEvent {
+  public getEvent(id: number): IEvent {
     return this.EVENTS.find(event => event.id === id);
   }
 
-  saveEvent(event): void {
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
+  }
+
+  public saveEvent(event): void {
     event.id = 999;
     event.session = [];
     this.EVENTS.push(event);
   }
 
-  updateEvent(event) {
+  public updateEvent(event) {
     const index = this.EVENTS.findIndex(x => x.id = event.id);
     this.EVENTS[index] = event;
   }
@@ -55,7 +63,7 @@ export class EventService {
     return emitter;
   }
 
-  populateEvents(): void {
+  private populateEvents(): void {
     this.EVENTS = [
       {
         id: 1,
