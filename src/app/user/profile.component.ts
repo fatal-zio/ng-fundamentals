@@ -28,11 +28,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  cancel(): void {
+  public cancel(): void {
     this.router.navigate(['events']);
   }
 
-  saveProfile(formValues): void {
+  public saveProfile(formValues): void {
     if (this.profileForm.valid) {
       this.authService.updateCurrentUser(formValues.firstName, formValues.lastName).subscribe(() => {
         this.toasterMessageService.success('Profile Saved');
@@ -40,11 +40,17 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  validateFirstName(): boolean {
+  public validateFirstName(): boolean {
     return this.firstName.valid || this.firstName.untouched;
   }
 
-  validateLastName(): boolean {
+  public validateLastName(): boolean {
     return this.lastName.valid || this.lastName.untouched;
+  }
+
+  public logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/user/login']);
+    });
   }
 }
