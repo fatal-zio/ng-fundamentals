@@ -1,4 +1,4 @@
-<div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
+<div routerLink="['/events', event.id]" class="well hoverwell thumbnail">
   <h2>{{event?.name | uppercase}}</h2>
   <div>Date: {{event?.date | date}}</div>
   <div [ngStyle]="getStartTimeStyle()"
@@ -8,9 +8,9 @@
     <span *ngSwitchDefault>(Normal Start)</span>
   </div>
   <div>Price: {{event?.price | currency:'CAD'}}</div>
-  <div *ngIf="event.location">
+  <div *ngIf="event?.location">
     <span>{{event?.location?.address}}</span>
     <span class ="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
   </div>
-  <div *ngIf="event.onlineUrl">Online URL: {{event?.onlineUrl}}</div>
+  <div *ngIf="event?.onlineUrl">Online URL: {{event?.onlineUrl}}</div>
 </div>

@@ -23,6 +23,8 @@ import { AppRoutes } from './routes';
 import { NotFoundComponent } from './errors/not-found.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { DurationPipe } from './events/shared/duration.pipe';
+import { HttpClient } from 'selenium-webdriver/http';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 
 const jQuery = window['$'];
 
@@ -50,6 +52,7 @@ const jQuery = window['$'];
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpClient,
     ToastrModule.forRoot(),
     RouterModule.forRoot(AppRoutes)
   ],
@@ -62,7 +65,10 @@ const jQuery = window['$'];
       provide: JQ_TOKEN, useValue: jQuery
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }
 
