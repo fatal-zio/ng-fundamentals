@@ -17,8 +17,13 @@ describe('SessionListComponentIntegrated', () => {
       debugEl: DebugElement;
 
   beforeEach(async(() => {
-    const mockAuthService = {};
-    const mockVoterService = {};
+    const mockAuthService = {
+      isAuthenticated: () => true,
+      currentUser: { userName: 'joe' }
+    };
+    const mockVoterService = {
+      userHasVoted: () => true
+    };
 
     TestBed.configureTestingModule({
       imports: [],
@@ -52,7 +57,7 @@ describe('SessionListComponentIntegrated', () => {
       component.ngOnChanges();
       fixture.detectChanges();
 
-      expect(element.querySelector('[well-title]').textContent).toContain('Session 1S');
+      expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
     });
   });
 });
